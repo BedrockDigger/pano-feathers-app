@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 exports.Feeder = class Feeder {
   constructor() {
-    this.index = ''
+    this.index = '';
   }
 
   async get(id, params) {

@@ -29,11 +29,11 @@ exports.Cronguy = class Cronguy {
             this.fetchHistory().then((ho) => {
                 return this.history.create(ho, params)
             }),
-            this.fetchWordcloud(nowConfig.topicKeyword).then((wo) => {
+            this.fetchWordcloud(nowConfig.topic).then((wo) => {
                 return this.wordcloud.create(wo, params)
             })
         ]).then((values) => {
-            values.push(nowConfig.quote)
+            values.push(nowConfig.artworkArtist, nowConfig.quoteContent, nowConfig.quoteSpeaker)
             response.data = values
         })
         response.time = now
@@ -90,8 +90,8 @@ exports.Cronguy = class Cronguy {
             historyEndpoint
         ).then(
             res => {
-                res.data.data.Events.splice(2)
-                res.data.data.Births.splice(2)
+                res.data.data.Events.splice(1)
+                res.data.data.Births.splice(1)
                 res.data.data.Deaths.splice(1)
                 historyObject.data = res.data
             }

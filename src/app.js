@@ -16,7 +16,7 @@ const services = require('./services');
 const appHooks = require('./app.hooks');
 const channels = require('./channels');
 
-const schedule = require('node-schedule')
+const schedule = require('node-schedule');
 
 const app = express(feathers());
 
@@ -49,6 +49,6 @@ app.use(express.errorHandler({ logger }));
 
 app.hooks(appHooks);
 
-var j = schedule.scheduleJob('0 0 0 * * *', () => app.service('receptionist').find())
+var j = schedule.scheduleJob('0 0 0 * * *', () => app.service('receptionist').find());
 
 module.exports = app;
