@@ -49,6 +49,6 @@ app.use(express.errorHandler({ logger }));
 
 app.hooks(appHooks);
 
-var j = schedule.scheduleJob('0 0 0 * * *', () => app.service('receptionist').find());
+schedule.scheduleJob('0 0 0 * * *', () => app.service('receptionist').find());
 
 module.exports = app;
