@@ -6,7 +6,6 @@ module.exports = function (app) {
   const options = {
     paginate: app.get('paginate'),
     services: {
-      cronguy: app.service('cronguy'),
       artwork: app.service('artwork'),
       history: app.service('history'),
       wordcloud: app.service('wordcloud')
@@ -17,7 +16,7 @@ module.exports = function (app) {
   app.use('/receptionist', new Receptionist(options, app));
 
   // Get our initialized service so that we can register hooks
-  const service = app.service('/receptionist');
+  const service = app.service('receptionist');
 
   service.hooks(hooks);
 };

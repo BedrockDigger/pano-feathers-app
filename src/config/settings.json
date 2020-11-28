@@ -7,18 +7,81 @@
     "quoteSpeaker": "Giovanni Ruffini"
   },
   "20201122": {
-    "topic": "country life",
-    "artworkId": "leonardo-da-vinci-the-last-supper",
-    "artworkArtist": "Leonardo Da Vinci",
-    "quoteContent": "If country life is healthful to the body, it is no less so to the mind.",
-    "quoteSpeaker": "Giovanni Ruffini"
+    "topic": "Regional Comprehensive Economic Partnership（RCEP）",
+    "artworkId": "chi-peng-world",
+    "artworkArtist": "Chi peng",
+    "quoteContent": "Knowing each other has no distance, thousands of miles are still neighbors.",
+    "quoteSpeaker": "Zhang JiuLing"
   },
   "20201123": {
-    "topic": "country life",
-    "artworkId": "leonardo-da-vinci-the-last-supper",
-    "artworkArtist": "Leonardo Da Vinci",
-    "quoteContent": "If country life is healthful to the body, it is no less so to the mind.",
-    "quoteSpeaker": "Giovanni Ruffini"
+    "topic": "Hippocampus",
+    "artworkId": "sun-xun-sun-xun-hippocampus",
+    "artworkArtist": "Sun Xun",
+    "quoteContent": "The hippocampus is closely related to the record of the time and space information we are in. It is the central station of our spiritual excursions and records various things on our spiritual level.",
+    "quoteSpeaker": "Michael C. Corbaris"
+  },
+  "20201124": {
+    "topic": "Tango",
+    "artworkId": "kumari-nahappan-tango",
+    "artworkArtist": "kumari nahappan",
+    "quoteContent": "Tango is the three-minute love of the lonely.",
+    "quoteSpeaker": "Borges"
+  },
+  "20201125": {
+    "topic": "Occam's razor principle",
+    "artworkId": "debanjan-roy-untitled-razor",
+    "artworkArtist": "Debanjan Roy",
+    "quoteContent": "If not necessary, do not add entities.",
+    "quoteSpeaker": "Luo ZhenYu"
+  },
+  "20201126": {
+    "topic": "Streak camera",
+    "artworkId": "dopamine-collective-camera-obscura-no-6",
+    "artworkArtist": "Dopamine Collective",
+    "quoteContent": "Not everyone believes in painting, but people believe in photography.",
+    "quoteSpeaker": "Ansel Adams"
+  },
+  "20201127": {
+    "topic": "Tannin",
+    "artworkId": "rene-magritte-the-portrait-le-portrait",
+    "artworkArtist": "René Magritte",
+    "quoteContent": "If your heart is warm with happiness, you'll need a glass - if sorrow chills your heart, have two!.",
+    "quoteSpeaker": "Hannu Lehmusvuori"
+  },
+  "20201128": {
+    "topic": "Alzheimer disease",
+    "artworkId": "tatsumi-orimoto-untitled-from-breadman-son-plus-alzheimer-mama",
+    "artworkArtist": "Tatsumi Orimoto",
+    "quoteContent": "Until now, everyone knows a cancer survivor, but no one knows an Alzheimer’s disease survivor.",
+    "quoteSpeaker": "Dale E. Bredson"
+  },
+  "20201129": {
+    "topic": "Versailles Literature",
+    "artworkId": "john-currin-2070",
+    "artworkArtist": "John Currin",
+    "quoteContent": "I am not interested in money.",
+    "quoteSpeaker": "Ma Yun"
+  },
+  "20201130": {
+    "topic": "Urban resilience",
+    "artworkId": "sergio-castiglione-mpx-1845-2104-2",
+    "artworkArtist": "Sergio Castiglione",
+    "quoteContent": "People come to cities to live, people live in cities for a better life.",
+    "quoteSpeaker": "Aristotle"
+  },
+  "20201201": {
+    "topic": "Professional gaming",
+    "artworkId": "ada-karczmarczyk-smasz-satans-face-with-gods-grace-slash-niszcz-szatana-lask-a-pana",
+    "artworkArtist": "Ada Karczmarczyk",
+    "quoteContent": "And if you move forward with the wind, you must be careful behind you.",
+    "quoteSpeaker": "Yasuo"
+  },
+  "20201202": {
+    "topic": "Onmyoji",
+    "artworkId": "kathe-kollwitz-the-living-to-the-dead-in-memory-of-january-15-1919-mourning-the-death-of-karl-liebknecht",
+    "artworkArtist": "Käthe Kollwitz",
+    "quoteContent": "Due to the nature of the profession of Onmyoji, he must not only be familiar with the dark side of human nature, but also have a fairly high level of cultivation in the palace.",
+    "quoteSpeaker": "Baku Yumemakura"
   },
   "default": {
     "topic": "country life",

@@ -3,7 +3,7 @@ const app = require('../../src/app');
 
 describe('\'receptionist\' service', () => {
   it('registered the service', () => {
-    const service = app.service('receptionist');
+    const service = app.service('Receptionist');
 
     assert.ok(service, 'Registered the service');
   });
