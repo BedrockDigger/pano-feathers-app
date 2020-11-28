@@ -7,36 +7,30 @@ exports.Receptionist = class Receptionist {
     this.artwork = options.services.artwork;
     this.history = options.services.history;
     this.wordcloud = options.services.wordcloud;
-  }
-
-  async find() {
-    const date = new Date();
-    const customId = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}`;
-    const data = await Promise.all([
-      this.artwork.get(customId),
-      this.history.get(customId),
-      this.wordcloud.get(customId)
-    ]);
-    return { data };
-  }
-
-  async create() {
     const config = fs.readFileSync(path.join(__dirname, '../../config/settings.json'), 'utf-8');
     const configJson = JSON.parse(config);
     const date = new Date();
-    const customId = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}`;
-    const nowConfig = configJson[customId] ? configJson[customId] : configJson.default;
-    const response = {};
-    const now = new Date();
-    await Promise.all([
-      this.artwork.create({ artworkId: nowConfig.artworkId }),
+    this.customId = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}`;
+    this.nowConfig = configJson[this.customId] ? configJson[this.customId] : configJson.default;
+  }
+
+  async find() {
+    const response = await Promise.all([
+      this.artwork.get(this.customId),
+      this.history.get(this.customId),
+      this.wordcloud.get(this.customId)
+    ]);
+    response.push(this.nowConfig.artworkArtist, this.nowConfig.quoteContent, this.nowConfig.quoteSpeaker);
+    return response;
+  }
+
+  async create() {
+    const response = await Promise.all([
+      this.artwork.create({ artworkId: this.nowConfig.artworkId }),
       this.history.create({}),
-      this.wordcloud.create({ topicKeyword: nowConfig.topic })
-    ]).then((values) => {
-      values.push(nowConfig.artworkArtist, nowConfig.quoteContent, nowConfig.quoteSpeaker);
-      response.data = values;
-    });
-    response.time = now;
+      this.wordcloud.create({ topicKeyword: this.nowConfig.topic })
+    ]);
+    response.time = this.date;
     return response;
   }
 };
