@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const dayjs = require('dayjs');
 
 /* eslint-disable no-unused-vars */
 exports.Receptionist = class Receptionist {
@@ -7,30 +8,38 @@ exports.Receptionist = class Receptionist {
     this.artwork = options.services.artwork;
     this.history = options.services.history;
     this.wordcloud = options.services.wordcloud;
-    const config = fs.readFileSync(path.join(__dirname, '../../config/settings.json'), 'utf-8');
-    const configJson = JSON.parse(config);
-    const date = new Date();
-    this.customId = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}`;
-    this.nowConfig = configJson[this.customId] ? configJson[this.customId] : configJson.default;
+    const config = JSON.parse(fs.readFileSync(path.join(__dirname, '../../config/settings.json'), 'utf-8'));
+    this.customId = dayjs().format('YYYYMMDD');
+    this.nowConfig = config[this.customId] ? config[this.customId] : config.default;
   }
 
   async find() {
     const response = await Promise.all([
-      this.artwork.get(this.customId),
       this.history.get(this.customId),
-      this.wordcloud.get(this.customId)
-    ]);
-    response.push(this.nowConfig.artworkArtist, this.nowConfig.quoteContent, this.nowConfig.quoteSpeaker);
+      this.wordcloud.get(this.customId),
+      this.artwork.get(this.customId),
+    ]).then(([h, w, a]) => ({
+      todayInHistory: h,
+      wordCloud: w,
+      artwork: {
+        data: a,
+        artist: this.nowConfig.artworkArtist
+      },
+      quote: {
+        content: this.nowConfig.quoteContent,
+        speaker: this.nowConfig.quoteSpeaker
+      }
+    }));
+    console.log(response);
     return response;
   }
 
   async create() {
-    const response = await Promise.all([
+    await Promise.all([
       this.artwork.create({ artworkId: this.nowConfig.artworkId }),
       this.history.create({}),
       this.wordcloud.create({ topicKeyword: this.nowConfig.topic })
     ]);
-    response.time = this.date;
-    return response;
+    return await this.find();
   }
 };

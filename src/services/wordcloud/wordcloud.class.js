@@ -3,6 +3,7 @@ const ax = require('axios');
 const md5 = require('md5');
 const Bottleneck = require('bottleneck');
 const varConfig = require('../../../var-config.json');
+const dayjs = require('dayjs');
 
 exports.Wordcloud = class Wordcloud extends Service {
   async create(data) {
@@ -28,9 +29,6 @@ exports.Wordcloud = class Wordcloud extends Service {
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min) + min);
     }
-
-    const date = new Date();
-    const customId = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}`;
 
     await Promise.all(langList.map((lang) => {
       const randNum = getRandomInt(1, 99999);
@@ -61,7 +59,7 @@ exports.Wordcloud = class Wordcloud extends Service {
       );
     }));
     wordcloudObject.data = wordsColl;
-    wordcloudObject._id = customId;
+    wordcloudObject._id = dayjs().format('YYYYMMDD');
     return super.create(wordcloudObject);
   }
 };

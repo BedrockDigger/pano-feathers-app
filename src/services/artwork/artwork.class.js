@@ -1,6 +1,7 @@
 const { Service } = require('feathers-nedb');
 const ax = require('axios');
 const varConfig = require('../../../var-config.json');
+const dayjs = require('dayjs');
 
 exports.Artwork = class Artwork extends Service {
   async create(data) {
@@ -9,9 +10,6 @@ exports.Artwork = class Artwork extends Service {
     const artworkEndpoint = 'https://api.artsy.net/api/artworks';
     var token = null;
     var { artworkId } = data;
-    const date = new Date();
-    const customId = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}`;
-
     await ax.post(
       tokenEndpoint,
       {},
@@ -38,7 +36,7 @@ exports.Artwork = class Artwork extends Service {
         artworkObject.data = res.data;
       }
     );
-    artworkObject._id = customId;
+    artworkObject._id = dayjs().format('YYYYMMDD');
     return super.create(artworkObject);
   }
 };

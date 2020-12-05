@@ -1,13 +1,11 @@
 const { Service } = require('feathers-nedb');
 const ax = require('axios');
+const dayjs = require('dayjs');
 
 exports.History = class History extends Service {
   async create() {
 
     var historyObject = {};
-
-    const date = new Date();
-    const customId = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}`;
 
     const historyEndpoint = 'http://history.muffinlabs.com/date';
     await ax.get(
@@ -20,7 +18,8 @@ exports.History = class History extends Service {
         historyObject.data = res.data;
       }
     );
-    historyObject._id = customId;
+    historyObject._id = dayjs().format('YYYYMMDD');
+    console.log(historyObject)
     return super.create(historyObject);
   }
 };

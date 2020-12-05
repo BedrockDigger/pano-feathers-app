@@ -45,6 +45,7 @@
     "bottleneck": "^2.19.5",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
+    "dayjs": "^1.9.6",
     "feathers-hooks-common": "^5.0.4",
     "feathers-nedb": "^5.1.0",
     "helmet": "^3.23.3",
