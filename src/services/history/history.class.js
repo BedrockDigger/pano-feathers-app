@@ -5,11 +5,13 @@ const dayjs = require('dayjs');
 exports.History = class History extends Service {
   async create() {
 
-    var historyObject = {};
+    let historyObject = {};
 
-    const historyEndpoint = 'http://history.muffinlabs.com/date';
+    const historyEndpoint = 'http://history.muffinlabs.com/date/';
+    const month = dayjs().format('M');
+    const day = dayjs().format('D');
     await ax.get(
-      historyEndpoint
+      historyEndpoint + month + '/' + day
     ).then(
       res => {
         res.data.data.Events.splice(1);
@@ -19,7 +21,6 @@ exports.History = class History extends Service {
       }
     );
     historyObject._id = dayjs().format('YYYYMMDD');
-    console.log(historyObject)
     return super.create(historyObject);
   }
 };

@@ -30,7 +30,6 @@ exports.Receptionist = class Receptionist {
         speaker: this.nowConfig.quoteSpeaker
       }
     }));
-    console.log(response);
     return response;
   }
 
