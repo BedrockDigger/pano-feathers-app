@@ -1,42 +1,21 @@
 const { Service } = require('feathers-nedb');
-const ax = require('axios');
-const varConfig = require('../../../var-config.json');
+const axios = require('axios');
+const cheerio = require('cheerio');
 const dayjs = require('dayjs');
 
 exports.Artwork = class Artwork extends Service {
   async create(data) {
-    var artworkObject = {};
-    const tokenEndpoint = 'https://api.artsy.net/api/tokens/xapp_token';
-    const artworkEndpoint = 'https://api.artsy.net/api/artworks';
-    var token = null;
-    var { artworkId } = data;
-    await ax.post(
-      tokenEndpoint,
-      {},
-      {
-        params: {
-          'client_id': varConfig.artsyClientId,
-          'client_secret': varConfig.artsyClientSecret
-        }
-      }
-    ).then(
-      res => {
-        token = res.data.token;
-      }
-    );
-    await ax.get(
-      artworkEndpoint + '/' + artworkId,
-      {
-        headers: {
-          'X-XAPP-Token': token
-        }
-      }
-    ).then(
-      res => {
-        artworkObject.data = res.data;
-      }
-    );
-    artworkObject._id = dayjs().format('YYYYMMDD');
-    return super.create(artworkObject);
+    const raw = await axios.get(data.artworkId);
+    const $ = cheerio.load(raw.data);
+    let artworkObj = {};
+    artworkObj.artist = $('.hiudGQ').first().text();
+    artworkObj.title = $('.cEzhuq').eq(1).text();
+    artworkObj.medium = $('.cEzhuq').eq(2).text();
+    artworkObj.dimensions = $('.cEzhuq').eq(4).text();
+    artworkObj.collectingInstitution = $('.blgKsD').first().text();
+    artworkObj.imageSrc = $('.dAJLTk').attr('src');
+    artworkObj.href = data.artworkId;
+    artworkObj._id = dayjs().format('YYYYMMDD');
+    return super.create(artworkObj);
   }
 };

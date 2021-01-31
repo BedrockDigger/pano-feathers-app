@@ -23,7 +23,6 @@ exports.Receptionist = class Receptionist {
       wordCloud: w,
       artwork: {
         data: a,
-        artist: this.nowConfig.artworkArtist
       },
       quote: {
         content: this.nowConfig.quoteContent,
