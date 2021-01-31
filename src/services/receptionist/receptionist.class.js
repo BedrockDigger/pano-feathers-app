@@ -29,7 +29,7 @@ exports.Receptionist = class Receptionist {
         speaker: this.nowConfig.quoteSpeaker
       }
     }));
-    return response;
+    return 'created';
   }
 
   async create() {
