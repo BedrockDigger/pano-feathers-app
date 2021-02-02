@@ -14,9 +14,10 @@ exports.History = class History extends Service {
       historyEndpoint + month + '/' + day
     ).then(
       res => {
-        res.data.data.Events.splice(1);
-        res.data.data.Births.splice(1);
-        res.data.data.Deaths.splice(1);
+        // console.log(res.data.data.Deaths[0]);
+        res.data.data.Events?.splice(1);
+        res.data.data.Births?.splice(1);
+        res.data.data.Deaths?.splice(1);
         historyObject.data = res.data;
       }
     );

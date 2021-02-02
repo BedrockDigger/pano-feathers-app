@@ -29,7 +29,7 @@ exports.Receptionist = class Receptionist {
         speaker: this.nowConfig.quoteSpeaker
       }
     }));
-    return 'created';
+    return response;
   }
 
   async create() {
@@ -38,6 +38,6 @@ exports.Receptionist = class Receptionist {
       this.history.create({}),
       this.wordcloud.create({ topicKeyword: this.nowConfig.topic })
     ]);
-    return await this.find();
+    return {message: 'Created.'};
   }
 };
