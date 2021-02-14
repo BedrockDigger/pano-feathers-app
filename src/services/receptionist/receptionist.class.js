@@ -9,15 +9,16 @@ exports.Receptionist = class Receptionist {
     this.history = options.services.history;
     this.wordcloud = options.services.wordcloud;
     const config = JSON.parse(fs.readFileSync(path.join(__dirname, '../../config/settings.json'), 'utf-8'));
-    this.customId = dayjs().format('YYYYMMDD');
-    this.nowConfig = config[this.customId] ? config[this.customId] : config.default;
+    this.customId = dayjs().format('d');
+    this.nowConfig = config[this.customId];
   }
 
   async find() {
+    const today = dayjs().format('YYYYMMDD');
     const response = await Promise.all([
-      this.history.get(this.customId),
-      this.wordcloud.get(this.customId),
-      this.artwork.get(this.customId),
+      this.history.get(today),
+      this.wordcloud.get(today),
+      this.artwork.get(today),
     ]).then(([h, w, a]) => ({
       todayInHistory: h,
       wordCloud: w,
@@ -38,6 +39,6 @@ exports.Receptionist = class Receptionist {
       this.history.create({}),
       this.wordcloud.create({ topicKeyword: this.nowConfig.topic })
     ]);
-    return {message: 'Created.'};
+    return { message: 'Created.' };
   }
 };

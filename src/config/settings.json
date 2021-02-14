@@ -1,80 +1,44 @@
-{
-  "20210201": {
+[
+  {
     "topic": "small step",
     "artworkId": "https://www.artsy.net/artwork/andy-warhol-unique-moonwalk",
     "quoteContent": "That's one small step for man, one giant leap for mankind.",
     "quoteSpeaker": "Neil Armstrong"
   },
-  "20210202": {
+  {
     "topic": "genesis",
     "artworkId": "https://www.artsy.net/artwork/judy-chicago-creation-of-the-world",
     "quoteContent": "What really interests me is whether God had any choice in the creation of the world.",
     "quoteSpeaker": "Albert Einstein"
   },
-  "20210203": {
+  {
     "topic": "clear day",
     "artworkId": "https://www.artsy.net/artwork/agnes-martin-on-a-clear-day-number-22-2",
     "quoteContent": "To sit in the shade on a fine day, and look upon verdure is the most perfect refreshment.",
     "quoteSpeaker": "Jane Austen"
   },
-  "20210204": {
+  {
     "topic": "dimension",
     "artworkId": "https://www.artsy.net/artwork/julie-mehretu-the-residual-5",
     "quoteContent": "Creativity creates dimensions in the Universe.",
     "quoteSpeaker": "Prof.Salam Al Shereida"
   },
-  "20210205": {
+  {
     "topic": "life",
     "artworkId": "https://www.artsy.net/artwork/lee-ufan-from-line-no-780188-1",
     "quoteContent": "Reverence for life brings us into a spiritual relation with the world which is independent of all knowledge of the universe.",
     "quoteSpeaker": "Albert Schweitzer"
   },
-  "20210206": {
+  {
     "topic": "Streak camera",
     "artworkId": "https://www.artsy.net/artwork/dopamine-collective-camera-obscura-no-6",
     "quoteContent": "Not everyone believes in painting, but people believe in photography.",
     "quoteSpeaker": "Ansel Adams"
   },
-  "20210207": {
+  {
     "topic": "Tannin",
     "artworkId": "https://www.artsy.net/artwork/rene-magritte-the-portrait-le-portrait",
     "quoteContent": "If your heart is warm with happiness, you'll need a glass - if sorrow chills your heart, have two!.",
     "quoteSpeaker": "Hannu Lehmusvuori"
-  },
-  "20210208": {
-    "topic": "Alzheimer disease",
-    "artworkId": "https://www.artsy.net/artwork/william-michael-harnett-the-old-violin",
-    "quoteContent": "Until now, everyone knows a cancer survivor, but no one knows an Alzheimer’s disease survivor.",
-    "quoteSpeaker": "Dale E. Bredson"
-  },
-  "20210209": {
-    "topic": "Versailles Literature",
-    "artworkId": "https://www.artsy.net/artwork/john-currin-2070",
-    "quoteContent": "I am not interested in money.",
-    "quoteSpeaker": "Ma Yun"
-  },
-  "20210210": {
-    "topic": "Urban resilience",
-    "artworkId": "https://www.artsy.net/artwork/sergio-castiglione-mpx-1845-2104-2",
-    "quoteContent": "People come to cities to live, people live in cities for a better life.",
-    "quoteSpeaker": "Aristotle"
-  },
-  "20210211": {
-    "topic": "Professional gaming",
-    "artworkId": "https://www.artsy.net/artwork/ada-karczmarczyk-smasz-satans-face-with-gods-grace-slash-niszcz-szatana-lask-a-pana",
-    "quoteContent": "And if you move forward with the wind, you must be careful behind you.",
-    "quoteSpeaker": "Yasuo"
-  },
-  "20210131": {
-    "topic": "void",
-    "artworkId": "https://www.artsy.net/artwork/theis-wendt-void",
-    "quoteContent": "Become empty to become complete, for it is the void that defines the form.",
-    "quoteSpeaker": "Bryant McGill"
-  },
-  "default": {
-    "topic": "void",
-    "artworkId": "https://www.artsy.net/artwork/theis-wendt-void",
-    "quoteContent": "Become empty to become complete, for it is the void that defines the form.",
-    "quoteSpeaker": "Bryant McGill"
   }
-}
+]
