@@ -13,8 +13,9 @@ exports.Receptionist = class Receptionist {
     this.nowConfig = config[this.customId];
   }
 
-  async find() {
-    const today = dayjs().format('YYYYMMDD');
+  async find(params) {
+    // const today = dayjs().format('YYYYMMDD');
+    const today = params.clientDate;
     const response = await Promise.all([
       this.history.get(today),
       this.wordcloud.get(today),
