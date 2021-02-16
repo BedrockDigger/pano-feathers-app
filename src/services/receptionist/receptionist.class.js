@@ -13,13 +13,11 @@ exports.Receptionist = class Receptionist {
     this.nowConfig = config[this.customId];
   }
 
-  async find(params) {
-    // const today = dayjs().format('YYYYMMDD');
-    const today = params.clientDate;
+  async get(id) {
     const response = await Promise.all([
-      this.history.get(today),
-      this.wordcloud.get(today),
-      this.artwork.get(today),
+      this.history.get(id),
+      this.wordcloud.get(id),
+      this.artwork.get(id),
     ]).then(([h, w, a]) => ({
       todayInHistory: h,
       wordCloud: w,
@@ -31,7 +29,7 @@ exports.Receptionist = class Receptionist {
         speaker: this.nowConfig.quoteSpeaker
       }
     }));
-    return response;
+    return Promise.resolve(response);
   }
 
   async create() {
@@ -40,6 +38,6 @@ exports.Receptionist = class Receptionist {
       this.history.create({}),
       this.wordcloud.create({ topicKeyword: this.nowConfig.topic })
     ]);
-    return { message: 'Created.' };
+    return Promise.resolve({ message: 'Created.' });
   }
 };
