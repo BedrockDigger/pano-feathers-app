@@ -52,7 +52,7 @@ app.use(express.errorHandler({ logger }));
 
 app.hooks(appHooks);
 
-const rule = schedule.RecurrenceRule({ second: 1, minute: 0, hour: 0, tz: 'Pacific/Wake' });
+const rule = schedule.RecurrenceRule({ second: 1, minute: 31, hour: 5, tz: 'Pacific/Wake' });
 schedule.scheduleJob(rule, () => app.service('receptionist').create());
 
 module.exports = app;
