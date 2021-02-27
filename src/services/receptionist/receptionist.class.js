@@ -14,6 +14,7 @@ exports.Receptionist = class Receptionist {
   }
 
   async get(id) {
+
     const response = await Promise.all([
       this.history.get(id),
       this.wordcloud.get(id),
@@ -29,7 +30,7 @@ exports.Receptionist = class Receptionist {
         speaker: this.nowConfig.quoteSpeaker
       }
     }));
-    return Promise.resolve(response);
+    return response;
   }
 
   async create() {
@@ -38,6 +39,7 @@ exports.Receptionist = class Receptionist {
       this.history.create({}),
       this.wordcloud.create({ topicKeyword: this.nowConfig.topic })
     ]);
-    return Promise.resolve({ message: 'Created.' });
+    console.log("data object successfully created.");
+    return { message: 'Created.' };
   }
 };

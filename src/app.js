@@ -52,15 +52,7 @@ app.use(express.errorHandler({ logger }));
 
 app.hooks(appHooks);
 
-// const today = dayjs().utc().format('d');
-// let weekArray;
-// if (today === 0 || today === 1 || today === 3 || today === 5) {
-//     weekArray = [0, 1, 3, 5];
-// }
-// if (today === 2 || today === 4 || today === 6) {
-//     weekArray = [2, 4, 6];
-// }
-const rule = schedule.RecurrenceRule({ second: 1, minute: 0, hour: 0, tz: 'Etc/GMT-12' });
-schedule.scheduleJob(rule, function () { app.service('receptionist').create() });
+const rule = schedule.RecurrenceRule({ second: 1, minute: 0, hour: 0, tz: 'Pacific/Wake' });
+schedule.scheduleJob(rule, () => app.service('receptionist').create());
 
 module.exports = app;
