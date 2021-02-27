@@ -19,7 +19,7 @@ const services = require('./services');
 const appHooks = require('./app.hooks');
 const channels = require('./channels');
 
-const schedule = require('node-schedule');
+const CronJob = require('cron').CronJob;
 
 const app = express(feathers());
 
@@ -52,7 +52,7 @@ app.use(express.errorHandler({ logger }));
 
 app.hooks(appHooks);
 
-const rule = schedule.RecurrenceRule({ second: 1, minute: 30, hour: 5, tz: 'Pacific/Wake' });
-schedule.scheduleJob(rule, () => app.service('receptionist').create());
+var job = new CronJob('1 0 0 * * *', function () { app.service('receptionist').create({}) }, null, true, 'Pacific/Wake')
+job.start();
 
 module.exports = app;
