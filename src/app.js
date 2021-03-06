@@ -10,7 +10,7 @@ const configuration = require('@feathersjs/configuration');
 const express = require('@feathersjs/express');
 
 const dayjs = require('dayjs');
-let utc = require('dayjs/plugin/utc')
+let utc = require('dayjs/plugin/utc');
 dayjs.extend(utc);
 
 
@@ -52,7 +52,7 @@ app.use(express.errorHandler({ logger }));
 
 app.hooks(appHooks);
 
-var job = new CronJob('1 0 0 * * *', function () { app.service('receptionist').create({}) }, null, true, 'Pacific/Wake')
+var job = new CronJob('0 0 0 * * *', function () { app.service('receptionist').create({}); }, null, true, 'Pacific/Wake');
 job.start();
 
 module.exports = app;

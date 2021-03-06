@@ -4,12 +4,7 @@ const hooks = require('./receptionist.hooks');
 
 module.exports = function (app) {
   const options = {
-    paginate: app.get('paginate'),
-    services: {
-      artwork: app.service('artwork'),
-      history: app.service('history'),
-      wordcloud: app.service('wordcloud')
-    }
+    paginate: app.get('paginate')
   };
 
   // Initialize our service with any options it requires

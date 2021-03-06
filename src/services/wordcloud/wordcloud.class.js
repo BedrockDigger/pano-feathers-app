@@ -2,7 +2,7 @@ const { Service } = require('feathers-nedb');
 const ax = require('axios');
 const md5 = require('md5');
 const Bottleneck = require('bottleneck');
-const varConfig = require('../../../var-config.json');
+const varConfig = require('../../config/apikey.json');
 const dayjs = require('dayjs');
 
 exports.Wordcloud = class Wordcloud extends Service {

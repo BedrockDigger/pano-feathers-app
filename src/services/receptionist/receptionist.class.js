@@ -4,17 +4,18 @@ const dayjs = require('dayjs');
 
 /* eslint-disable no-unused-vars */
 exports.Receptionist = class Receptionist {
-  constructor(options) {
-    this.artwork = options.services.artwork;
-    this.history = options.services.history;
-    this.wordcloud = options.services.wordcloud;
-    const config = JSON.parse(fs.readFileSync(path.join(__dirname, '../../config/settings.json'), 'utf-8'));
-    this.customId = dayjs().format('d');
-    this.nowConfig = config[this.customId];
+
+  setup(app) {
+    const configPath = path.join(__dirname, '../../config/contents.json');
+    const allConfig = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+    const customId = dayjs().format('d');
+    this.artwork = app.service('artwork');
+    this.history = app.service('history');
+    this.wordcloud = app.service('wordcloud');
+    this.config = allConfig[customId];
   }
 
   async get(id) {
-
     const response = await Promise.all([
       this.history.get(id),
       this.wordcloud.get(id),
@@ -26,8 +27,8 @@ exports.Receptionist = class Receptionist {
         data: a,
       },
       quote: {
-        content: this.nowConfig.quoteContent,
-        speaker: this.nowConfig.quoteSpeaker
+        content: this.config.quoteContent,
+        speaker: this.config.quoteSpeaker
       }
     }));
     return response;
@@ -35,11 +36,11 @@ exports.Receptionist = class Receptionist {
 
   async create() {
     await Promise.all([
-      this.artwork.create({ artworkId: this.nowConfig.artworkId }),
+      this.artwork.create({ artworkUrl: this.config.artworkUrl }),
       this.history.create({}),
-      this.wordcloud.create({ topicKeyword: this.nowConfig.topic })
+      this.wordcloud.create({ topicKeyword: this.config.topic })
     ]);
-    console.log("data object successfully created.");
+    console.log('data object successfully created.');
     return { message: 'Created.' };
   }
 };

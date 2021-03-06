@@ -1,44 +1,44 @@
 [
   {
     "topic": "small step",
-    "artworkId": "https://www.artsy.net/artwork/andy-warhol-unique-moonwalk",
+    "artworkUrl": "https://www.artsy.net/artwork/andy-warhol-unique-moonwalk",
     "quoteContent": "That's one small step for man, one giant leap for mankind.",
     "quoteSpeaker": "Neil Armstrong"
   },
   {
     "topic": "genesis",
-    "artworkId": "https://www.artsy.net/artwork/judy-chicago-creation-of-the-world",
+    "artworkUrl": "https://www.artsy.net/artwork/judy-chicago-creation-of-the-world",
     "quoteContent": "What really interests me is whether God had any choice in the creation of the world.",
     "quoteSpeaker": "Albert Einstein"
   },
   {
     "topic": "clear day",
-    "artworkId": "https://www.artsy.net/artwork/agnes-martin-on-a-clear-day-number-22-2",
+    "artworkUrl": "https://www.artsy.net/artwork/agnes-martin-on-a-clear-day-number-22-2",
     "quoteContent": "To sit in the shade on a fine day, and look upon verdure is the most perfect refreshment.",
     "quoteSpeaker": "Jane Austen"
   },
   {
     "topic": "dimension",
-    "artworkId": "https://www.artsy.net/artwork/julie-mehretu-the-residual-5",
+    "artworkUrl": "https://www.artsy.net/artwork/julie-mehretu-the-residual-5",
     "quoteContent": "Creativity creates dimensions in the Universe.",
     "quoteSpeaker": "Prof.Salam Al Shereida"
   },
   {
     "topic": "life",
-    "artworkId": "https://www.artsy.net/artwork/lee-ufan-from-line-no-780188-1",
+    "artworkUrl": "https://www.artsy.net/artwork/lee-ufan-from-line-no-780188-1",
     "quoteContent": "Reverence for life brings us into a spiritual relation with the world which is independent of all knowledge of the universe.",
     "quoteSpeaker": "Albert Schweitzer"
   },
   {
     "topic": "Streak camera",
-    "artworkId": "https://www.artsy.net/artwork/dopamine-collective-camera-obscura-no-6",
+    "artworkUrl": "https://www.artsy.net/artwork/dopamine-collective-camera-obscura-no-6",
     "quoteContent": "Not everyone believes in painting, but people believe in photography.",
     "quoteSpeaker": "Ansel Adams"
   },
   {
     "topic": "Tannin",
-    "artworkId": "https://www.artsy.net/artwork/rene-magritte-the-portrait-le-portrait",
-    "quoteContent": "If your heart is warm with happiness, you'll need a glass - if sorrow chills your heart, have two!.",
+    "artworkUrl": "https://www.artsy.net/artwork/rene-magritte-the-portrait-le-portrait",
+    "quoteContent": "If your heart is warm with happiness, you'll need a glass - if sorrow chills your heart, have two!",
     "quoteSpeaker": "Hannu Lehmusvuori"
   }
 ]
