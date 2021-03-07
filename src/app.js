@@ -10,9 +10,11 @@ const configuration = require('@feathersjs/configuration');
 const express = require('@feathersjs/express');
 
 const dayjs = require('dayjs');
-let utc = require('dayjs/plugin/utc');
+var utc = require('dayjs/plugin/utc');
+var timezone = require('dayjs/plugin/timezone');
 dayjs.extend(utc);
-
+dayjs.extend(timezone);
+dayjs.tz.setDefault('Pacific/Wake');
 
 const middleware = require('./middleware');
 const services = require('./services');
