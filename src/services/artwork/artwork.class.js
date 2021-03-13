@@ -16,7 +16,7 @@ exports.Artwork = class Artwork extends Service {
       collectingInstitution: $('.gxmZXl').first().text(),
       imageSrc: $('.dAJLTk').attr('src'),
       href: data.artworkUrl,
-      _id: dayjs().format('YYYYMMDD')
+      _id: dayjs().tz("Etc/GMT-12").format('YYYYMMDD')
     };
     return super.create(artworkObj);
   }

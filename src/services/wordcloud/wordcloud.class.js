@@ -59,7 +59,7 @@ exports.Wordcloud = class Wordcloud extends Service {
       );
     }));
     wordcloudObject.data = wordsColl;
-    wordcloudObject._id = dayjs().format('YYYYMMDD');
+    wordcloudObject._id = dayjs().tz("Etc/GMT-12").format('YYYYMMDD');
     return super.create(wordcloudObject);
   }
 };

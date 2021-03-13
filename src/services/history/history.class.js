@@ -20,7 +20,7 @@ exports.History = class History extends Service {
         historyObject.data = res.data;
       }
     );
-    historyObject._id = dayjs().format('YYYYMMDD');
+    historyObject._id = dayjs().tz("Etc/GMT-12").format('YYYYMMDD');
     return super.create(historyObject);
   }
 };

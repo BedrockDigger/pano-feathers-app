@@ -7,12 +7,10 @@ exports.Receptionist = class Receptionist {
 
   setup(app) {
     const configPath = path.join(__dirname, '../../config/contents.json');
-    const allConfig = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
-    const customId = dayjs().format('d');
+    this.allConfig = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
     this.artwork = app.service('artwork');
     this.history = app.service('history');
     this.wordcloud = app.service('wordcloud');
-    this.config = allConfig[customId];
   }
 
   async get(id) {
@@ -35,12 +33,23 @@ exports.Receptionist = class Receptionist {
   }
 
   async create() {
-    await Promise.all([
-      this.artwork.create({ artworkUrl: this.config.artworkUrl }),
+    const customId = dayjs().format('d');
+    const config = this.allConfig[customId];
+    const data = await Promise.all([
+      this.artwork.create({ artworkUrl: config.artworkUrl }),
       this.history.create({}),
-      this.wordcloud.create({ topicKeyword: this.config.topic })
+      this.wordcloud.create({ topicKeyword: config.topic })
     ]);
-    console.log('data object successfully created.');
-    return { message: 'Created.' };
+    const gmt12Time = dayjs().tz("Etc/GMT-12").format();
+    const deTime = dayjs().format();
+    console.log('Full data object created on\n');
+    console.log('GMT-12 time: ' + gmt12Time + '\n');
+    console.log('German time: ' + deTime + '\n');
+    return {
+      message: 'Created.',
+      gmt12Time: gmt12Time,
+      deTime: deTime,
+      data: data
+    };
   }
 };

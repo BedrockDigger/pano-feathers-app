@@ -14,7 +14,6 @@ var utc = require('dayjs/plugin/utc');
 var timezone = require('dayjs/plugin/timezone');
 dayjs.extend(utc);
 dayjs.extend(timezone);
-dayjs.tz.setDefault('Pacific/Wake');
 
 const middleware = require('./middleware');
 const services = require('./services');
@@ -54,7 +53,7 @@ app.use(express.errorHandler({ logger }));
 
 app.hooks(appHooks);
 
-var job = new CronJob('0 0 0 * * *', function () { app.service('receptionist').create({}); }, null, true, 'Pacific/Wake');
+var job = new CronJob('0 0 0 * * *', function () { app.service('receptionist').create({}); }, null, true, 'Etc/GMT-12');
 job.start();
 
 module.exports = app;
