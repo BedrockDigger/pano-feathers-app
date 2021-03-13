@@ -14,6 +14,8 @@ exports.Receptionist = class Receptionist {
   }
 
   async get(id) {
+    const customId = dayjs().format('d');
+    const config = this.allConfig[customId];
     const response = await Promise.all([
       this.history.get(id),
       this.wordcloud.get(id),
@@ -25,8 +27,8 @@ exports.Receptionist = class Receptionist {
         data: a,
       },
       quote: {
-        content: this.config.quoteContent,
-        speaker: this.config.quoteSpeaker
+        content: config.quoteContent,
+        speaker: config.quoteSpeaker
       }
     }));
     return response;
