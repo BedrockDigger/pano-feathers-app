@@ -7,6 +7,7 @@ const dayjs = require('dayjs');
 
 exports.Wordcloud = class Wordcloud extends Service {
   async create(data) {
+    console.log('WORDCLOUD CREATE STARTED');
     var { topicKeyword } = data;
     var wordcloudObject = {};
     const langList = [
@@ -60,6 +61,7 @@ exports.Wordcloud = class Wordcloud extends Service {
     }));
     wordcloudObject.data = wordsColl;
     wordcloudObject._id = dayjs().tz("Etc/GMT-12").format('YYYYMMDD');
+    console.log('WORDCLOUD CREATE FINISHED');
     return super.create(wordcloudObject);
   }
 };

@@ -5,6 +5,7 @@ const dayjs = require('dayjs');
 
 exports.Artwork = class Artwork extends Service {
   async create(data) {
+    console.log('ARTWORK CREATE STARTED');
     const raw = await axios.get(data.artworkUrl);
     const $ = cheerio.load(raw.data);
     console.log(data);
@@ -18,6 +19,7 @@ exports.Artwork = class Artwork extends Service {
       href: data.artworkUrl,
       _id: dayjs().tz("Etc/GMT-12").format('YYYYMMDD')
     };
+    console.log('ARTWORK CREATE FINISHED');
     return super.create(artworkObj);
   }
 };
