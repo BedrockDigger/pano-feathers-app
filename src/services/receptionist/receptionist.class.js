@@ -14,7 +14,7 @@ exports.Receptionist = class Receptionist {
   }
 
   async get(id) {
-    const customId = dayjs().format('d');
+    const customId = dayjs(id, 'YYYYMMDD').format('d');
     const config = this.allConfig[customId];
     const response = await Promise.all([
       this.history.get(id),
@@ -23,9 +23,7 @@ exports.Receptionist = class Receptionist {
     ]).then(([h, w, a]) => ({
       todayInHistory: h,
       wordCloud: w,
-      artwork: {
-        data: a,
-      },
+      artwork: { data: a },
       quote: {
         content: config.quoteContent,
         speaker: config.quoteSpeaker
