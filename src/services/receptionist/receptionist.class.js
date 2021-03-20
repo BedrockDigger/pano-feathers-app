@@ -33,7 +33,7 @@ exports.Receptionist = class Receptionist {
   }
 
   async create() {
-    const customId = dayjs().format('d');
+    const customId = dayjs().tz("Etc/GMT-12").format('d');
     const config = this.allConfig[customId];
     const data = await Promise.all([
       this.artwork.create({ artworkUrl: config.artworkUrl }),

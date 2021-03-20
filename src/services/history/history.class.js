@@ -8,8 +8,8 @@ exports.History = class History extends Service {
     let historyObject = {};
 
     const historyEndpoint = 'http://history.muffinlabs.com/date/';
-    const month = dayjs().format('M');
-    const day = dayjs().format('D');
+    const month = dayjs().tz("Etc/GMT-12").format('M');
+    const day = dayjs().tz("Etc/GMT-12").format('D');
     await ax.get(
       historyEndpoint + month + '/' + day
     ).then(
