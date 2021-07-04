@@ -7,7 +7,7 @@ exports.Artwork = class Artwork extends Service {
   async create(data) {
     console.log('ARTWORK CREATE STARTED');
     const raw = await axios.get(data.artworkUrl);
-    const $ = cheerio.load(raw.data);
+    const $ = cheerio.load(raw.data, { xmlMode: true });
     console.log(data);
     let artworkObj = {
       artist: $('.glLAxv').eq(2).text(),
