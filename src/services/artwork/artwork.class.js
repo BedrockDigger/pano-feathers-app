@@ -10,12 +10,12 @@ exports.Artwork = class Artwork extends Service {
     const $ = cheerio.load(raw.data);
     console.log(data);
     let artworkObj = {
-      artist: $('.iDZoNX').first().text(),
-      title: $('.kPqROo').eq(1).text(),
-      medium: $('.kPqROo').eq(2).text(),
-      dimensions: $('.kPqROo').eq(4).text(),
-      collectingInstitution: $('.gxmZXl').first().text(),
-      imageSrc: $('.dAJLTk').attr('src'),
+      artist: $('.glLAxv').eq(2).text(),
+      title: $('.gDTxCv').first().text(),
+      medium: $('.glLAxv').eq(3).text(),
+      dimensions: $('.glLAxv').eq(5).text(),
+      collectingInstitution: $('.glLAxv').first().text(),
+      imageSrc: $('.kSWfVg').find('noscript').children().attr('src'),
       href: data.artworkUrl,
       _id: dayjs().tz("Etc/GMT-12").format('YYYYMMDD')
     };
